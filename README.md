@@ -9,6 +9,18 @@ Inspired by [dangrover.com](http://dangrover.com/). Current theme used at [eliot
 
 ![](/screenshot.png)
 
+
+## Table of contents
+1. [Installation](#installation)
+2. Website sections
+    1. [Header](#header)
+    2. [Footer](#footer)
+    3. [Home page](#home-page)
+    4. [Blog page](#blog-page)
+5. [GitHub Pages](#github-pages)
+6. [Development instructions](#development)
+
+
 ### Installation
 
 
@@ -55,7 +67,7 @@ jekyll serve
 
 The website will look somewhat empty at first. That's normal. Follow the next instructions to complete the header and footer components, and the home and blog pages.
 
-### Header
+#### Header
 Open the `_config.yml` file and add the following:
 ```yml
 header:
@@ -67,38 +79,42 @@ header:
 ```
 Re-run `jekyll serve` to see the header updated.
 
-### Footer
+#### Footer
 Open the `_config.yml` file and add the following:
 ```yml
 footer:
   show_powered_by: true
   contact:
-    - name: Email
+    - type: email
+      name: Email
       value: yourmail@domain.com
-      link: mailto:yourmail@domain.com
-    - name: WeChat
+    - type: wechat
       value: YourWeChatUsername
       link: "#"
   follow:
-    - name: Twitter
+    - type: twitter
+      name: Twitter
       link: http://twitter.com/YourTwitterUsername
       username: "@YourTwitterUsername"
-    - name: Facebook
+    - type: facebook
+      name: Facebook
       link: http://facebook.com/YourFacebookUsername
-    - name: LinkedIn
+    - type: linkedin
+      name: LinkedIn
       link: http://linkedin.com/in/YourLinkedInUsername
-    - name: GitHub
+    - type: github
+      name: GitHub
       link: http://github.com/YourGitHubUsername
-    - name: Dribbble
+    - type: dribbble
+      name: Dribbble
       link: https://dribbble.com/YourDribbbleUsername
-    - name: Weibo
-      link: http://weibo.com/u/YourWeiboUsername
-    - name: RSS
+    - type: rss
+      name: RSS
       link: /feed.xml
 ```
 Re-run `jekyll serve` to see the footer updated.
 
-### Home page
+#### Home page
 Create (or edit) the `index.markdown` file and add the following:
 ```yml
 ---
@@ -109,11 +125,11 @@ profile_picture:
 ---
 
 <p>
-  Welcome to mysite!
+  Welcome to my site!
 </p>
 ```
 
-### Blog page
+#### Blog page
 Create `blog.markdown` file and add the following:
 ```yml
 ---
@@ -129,6 +145,16 @@ This is an example of a "Blog" page, displaying a list of posts.
 
 Your website is ready!
 
+
+### GitHub Pages
+
+You can deploy your website to GitHub Pages, but you cannot use the 1-click GitHub Pages build and deploy system. The issue is that the Bay theme relies on Jekyll 4.3+ (which uses a more modern Sass processor), whereas the GitHub Pages build system uses an older version of Jekyll.
+
+However, it's fairly easy to build and deploy your website with GitHub Actions, yet use GitHub Pages to host it.
+
+Further explanations and instructions can be found on the official [Jekyll website](https://jekyllrb.com/docs/continuous-integration/github-actions/).
+
+You can also refer to the [`.github/workflows/deploy.yml`](https://github.com/eliottvincent/bay/blob/master/.github/workflows/deploy.yml) file in this repository.
 
 ### Development
 
